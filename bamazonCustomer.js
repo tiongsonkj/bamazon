@@ -21,10 +21,12 @@ function runStore() {
 
 		var id = [];
 		var quantity = [];
+		var prices = [];
 
 		for (var i = 0; i < results.length; i++) {
 			id.push("" + results[i].item_id);
-			quantity.push("" + results[i].stock_quantity)
+			quantity.push("" + results[i].stock_quantity);
+			prices.push("" + results[i].price);
 
 			console.log("ID: " + results[i].item_id);
 			console.log("Item: " + results[i].product_name);
@@ -67,6 +69,9 @@ function runStore() {
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[0],
 								function(error, res){
 								});
+
+							var cost = units * prices[0];
+							console.log("Your total cost is $" + cost);
 
 							var showUpdatedQuery = connect.query(
 								"SELECT * FROM products",
