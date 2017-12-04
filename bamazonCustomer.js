@@ -189,6 +189,210 @@ function runStore() {
 							connect.end();
 						});
 						break;
+					case id[4]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[4]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[4],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[4];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
+					case id[5]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[5]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[5],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[5];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
+					case id[6]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[6]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[6],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[6];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
+					case id[7]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[7]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[7],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[7];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
+					case id[8]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[8]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[8],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[8];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
+					case id[9]:
+						// set up another inquirer to prompt how many units the user would like to purchase
+						// the user must make a valid quantity choice or else he/she will receive a comment
+						inquirer.prompt([
+							{
+								name: "stock",
+								message: "How many units of this product would you like to buy?",
+								validate: function(value) {
+									if (isNaN(value) === false && parseInt(value) > 0 && parseInt(value) <= quantity[9]) {
+										return true;
+									} else {
+										console.log("\nInsufficient quantity!");
+										return false;
+									}
+								}
+							}
+						]).then(function(answer) {
+							// set up a variable for the units
+							var units = answer.stock;
+
+							// set up another query to update the mysql query
+							var updateQuery = connect.query(
+								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[9],
+								function(error, res){
+								});
+
+							// create a variable for the cost of the user's purchase
+							var cost = units * prices[9];
+							console.log("Your total cost is $" + cost);
+
+							// end the connection
+							connect.end();
+						});
+						break;
 				}
 			}).catch(function (error) {
 				console.log(error);
