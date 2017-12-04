@@ -78,6 +78,8 @@ function runStore() {
 								function(error, updatedResults){
 									console.log("We have this many units left now of the winter jacket: " + updatedResults[0].stock_quantity);
 								});
+
+							connect.end();
 						});
 						break;					
 					case id[1]:
@@ -106,6 +108,9 @@ function runStore() {
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[1],
 								function(error, res){
 								});
+
+							var cost = units * prices[1];
+							console.log("Your total cost is $" + cost);
 
 							var showUpdatedQuery = connect.query(
 								"SELECT * FROM products",
