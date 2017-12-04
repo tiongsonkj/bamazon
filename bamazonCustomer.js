@@ -44,8 +44,6 @@ function runStore() {
 			]).then(function(answers) {
 				switch (answers.product) {
 					case id[0]: 
-						console.log("You chose the winter jacket!")
-						console.log("We have this much in stock: " + quantity[0]);
 
 						inquirer.prompt([
 							{
@@ -63,8 +61,6 @@ function runStore() {
 						]).then(function(answer) {
 							var units = answer.stock;
 
-							console.log("You chose this many units: " + units);
-
 							var updateQuery = connect.query(
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[0],
 								function(error, res){
@@ -72,12 +68,6 @@ function runStore() {
 
 							var cost = units * prices[0];
 							console.log("Your total cost is $" + cost);
-
-							var showUpdatedQuery = connect.query(
-								"SELECT * FROM products",
-								function(error, updatedResults){
-									console.log("We have this many units left now of the winter jacket: " + updatedResults[0].stock_quantity);
-								});
 
 							connect.end();
 						});
