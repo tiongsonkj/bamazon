@@ -44,7 +44,6 @@ function runStore() {
 			]).then(function(answers) {
 				switch (answers.product) {
 					case id[0]: 
-
 						inquirer.prompt([
 							{
 								name: "stock",
@@ -73,9 +72,6 @@ function runStore() {
 						});
 						break;					
 					case id[1]:
-						console.log("You chose the 'Biography of Kelvin' !")
-						console.log("We have this much in stock: " + results[1].stock_quantity);
-
 						inquirer.prompt([
 							{
 								name: "stock",
@@ -92,8 +88,6 @@ function runStore() {
 						]).then(function(answer) {
 							var units = answer.stock;
 
-							console.log("You chose this many units: " + units);
-
 							var updateQuery = connect.query(
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[1],
 								function(error, res){
@@ -102,17 +96,10 @@ function runStore() {
 							var cost = units * prices[1];
 							console.log("Your total cost is $" + cost);
 
-							var showUpdatedQuery = connect.query(
-								"SELECT * FROM products",
-								function(error, updatedResults){
-									console.log("We have this many units left now of the winter jacket: " + updatedResults[1].stock_quantity);
-								});
+							connect.end();
 						});
 						break;
 					case id[2]:
-						console.log("You chose the Chicago Bulls Winter Hat!")
-						console.log("We have this much in stock: " + results[2].stock_quantity);
-
 						inquirer.prompt([
 							{
 								name: "stock",
@@ -129,24 +116,18 @@ function runStore() {
 						]).then(function(answer) {
 							var units = answer.stock;
 
-							console.log("You chose this many units: " + units);
-
 							var updateQuery = connect.query(
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[2],
 								function(error, res){
 								});
 
-							var showUpdatedQuery = connect.query(
-								"SELECT * FROM products",
-								function(error, updatedResults){
-									console.log("We have this many units left now of the winter jacket: " + updatedResults[2].stock_quantity);
-								});
-						});
+							var cost = units * prices[2];
+							console.log("Your total cost is $" + cost);
+
+							connect.end();
+						});						
 						break;
 					case id[3]:
-						console.log("You chose the Workout Headphones!")
-						console.log("We have this much in stock: " + results[3].stock_quantity);
-
 						inquirer.prompt([
 							{
 								name: "stock",
@@ -163,18 +144,15 @@ function runStore() {
 						]).then(function(answer) {
 							var units = answer.stock;
 
-							console.log("You chose this many units: " + units);
-
 							var updateQuery = connect.query(
 								"UPDATE products SET stock_quantity = stock_quantity - " + units + " WHERE item_id = " + id[3],
 								function(error, res){
 								});
 
-							var showUpdatedQuery = connect.query(
-								"SELECT * FROM products",
-								function(error, updatedResults){
-									console.log("We have this many units left now of the winter jacket: " + updatedResults[3].stock_quantity);
-								});
+							var cost = units * prices[3];
+							console.log("Your total cost is $" + cost);
+
+							connect.end();
 						});
 						break;
 				}
